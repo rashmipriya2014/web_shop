@@ -14,6 +14,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('orders', 'App\Http\Controllers\Api\OrderController@getOrders');
+Route::post('make-order', 'App\Http\Controllers\Api\OrderController@makeOrder');
+Route::post('delete-order', 'App\Http\Controllers\Api\OrderController@deleteOrder');
+Route::post('orders/{id}/add', 'App\Http\Controllers\Api\OrderController@addProductToOrder');
+Route::post('orders/{id}/pay', 'App\Http\Controllers\Api\OrderController@pay');
+
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+   return $request->user();
 });
